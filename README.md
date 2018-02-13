@@ -1,7 +1,7 @@
 ![Commie Coin Logo](http://commiecoin.org/img/webpage_banner.png)
 ---
 
-[Website](http://commiecoin.org/) — [Blog](https://reddit.com/r/CommieCoin) — [Twitter](https://twitter.com/CommieCoin) — [Discord](https://discord.gg/BgyPAP) — [Facebook](https://www.facebook.com/CommieCoin/)
+[Website](http://commiecoin.org/) — [Reddit](https://reddit.com/r/CommieCoin) — [Twitter](https://twitter.com/CommieCoin) — [Discord](https://discord.gg/BgyPAP) — [Facebook](https://www.facebook.com/CommieCoin/)
 
 Features
 ---
