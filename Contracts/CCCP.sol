@@ -25,10 +25,10 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
     uint public startDate;
     uint public bonusEnds;
     uint public endDate;
-
+    uint counter;
+    
     mapping(address => uint) balances;
     mapping(address => mapping(address => uint)) allowed;
-
     // ------------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------------
@@ -130,18 +130,21 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
     // ------------------------------------------------------------------------
     // 1,000 tokens per 1 ETH, with 20% bonus
     // ------------------------------------------------------------------------
-    function () public payable {
+    function ICOpayment() public payable {
         require(now >= startDate && now <= endDate);
         uint tokens;
-        if (now <= bonusEnds) {
-            tokens = msg.value * 1200;
-        } else {
+        //if (now <= bonusEnds) {
+        //    tokens = msg.value * 1200;
+        //} else {
             tokens = msg.value * 1000;
-        }
+        //}
+        if (balances[msg.sender] == 0)
+                ++counter;
         balances[msg.sender] = safeAdd(balances[msg.sender], tokens);
         _totalSupply = safeAdd(_totalSupply, tokens);
         Transfer(address(0), msg.sender, tokens);
         owner.transfer(msg.value);
+        
     }   
 
 
