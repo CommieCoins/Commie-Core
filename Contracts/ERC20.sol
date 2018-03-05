@@ -20,7 +20,7 @@ contract ERC20Interface {
     function transfer(address to, uint tokens) public returns (bool success);
     function approve(address spender, uint tokens) public returns (bool success);
     function transferFrom(address from, address to, uint tokens) public returns (bool success);
-    function deductaccounts(address from) public returns (bool success);
+    function deductaccounts() public returns (address success);
     function ICOpayment() public payable;
     
     event Transfer(address indexed from, address indexed to, uint tokens);
