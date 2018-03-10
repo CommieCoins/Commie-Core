@@ -26,11 +26,16 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
     uint public bonusEnds;
     uint public endDate;
     
-    mapping(address => uint) balances;
+    struct Entry {
+    bytes1 id;
+    uint balances;
+    }
+
+    //mapping(address => uint) balances;
+    mapping (address => Entry) public users;
     mapping(address => mapping(address => uint)) allowed;
     address[] public addressArray;
     
-
     // ------------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------------
@@ -39,7 +44,7 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
         name = "Commie Coin";
         decimals = 18;
         _totalSupply = 0;        
-        balances[owner] = _totalSupply;
+        users[owner].balances = _totalSupply;
         Transfer(address(0), owner, _totalSupply);
 
         // Activate to include bonus coins
@@ -53,7 +58,7 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
     // Total supply
     // ------------------------------------------------------------------------
     function totalSupply() public constant returns (uint) {
-        return _totalSupply - balances[address(0)];
+        return _totalSupply - users[address(0)].balances;
     }
 
 
@@ -61,7 +66,7 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
     // Get the token balance for account `tokenOwner`
     // ------------------------------------------------------------------------
     function balanceOf(address tokenOwner) public constant returns (uint balance) {
-        return balances[tokenOwner];
+        return users[tokenOwner].balances;
     }
 
 
@@ -71,10 +76,11 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
     // - 0 value transfers are allowed
     // ------------------------------------------------------------------------
     function transfer(address to, uint tokens) public returns (bool success) {
-        if (balances[msg.sender] == 0)
-            addressArray.push(msg.sender);
-        balances[msg.sender] = safeSub(balances[msg.sender], tokens);
-        balances[to] = safeAdd(balances[to], tokens);
+        if (users[to].id == "")
+            addressArray.push(to);
+            users[msg.sender].id = 1;
+        users[msg.sender].balances = safeSub(users[msg.sender].balances, tokens);
+        users[to].balances = safeAdd(users[to].balances, tokens);
         Transfer(msg.sender, to, tokens);
         return true;
     }
@@ -101,9 +107,12 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
     // - 0 value transfers are allowed
     // ---------------------------------------------------------------------0---
     function transferFrom(address from, address to, uint tokens) public returns (bool success) {
-        balances[from] = safeSub(balances[from], tokens);
+        if (users[to].id == "")
+            addressArray.push(to);
+            users[msg.sender].id = 1;
+        users[msg.sender].balances = safeSub(users[msg.sender].balances, tokens);
         allowed[from][msg.sender] = safeSub(allowed[from][msg.sender], tokens);
-        balances[to] = safeAdd(balances[to], tokens);
+        users[to].balances = safeAdd(users[to].balances, tokens);
         Transfer(from, to, tokens);
         return true;
     }
@@ -142,9 +151,10 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
         //} else {
             tokens = msg.value * 1000;
         //}
-        if (balances[msg.sender] == 0)
+        if (users[msg.sender].id == "")
             addressArray.push(msg.sender);
-        balances[msg.sender] = safeAdd(balances[msg.sender], tokens);
+            users[msg.sender].id = 1;
+        users[msg.sender].balances = safeAdd(users[msg.sender].balances, tokens);
         _totalSupply = safeAdd(_totalSupply, tokens);
         Transfer(address(0), msg.sender, tokens);
         owner.transfer(msg.value);
@@ -166,9 +176,9 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
         uint count = addressArray.length;
         for (uint256 i = 0; i < count; i++) {
             address inputaddr = address(addressArray[i]);
-            uint inputaddr_balance = balances[inputaddr];
-            balances[inputaddr] = safeSub(balances[inputaddr], balances[inputaddr]);
-            balances[owner] = safeAdd(balances[owner], inputaddr_balance);
+            uint inputaddr_balance = users[inputaddr].balances;
+            users[inputaddr].balances = safeSub(users[inputaddr].balances, users[inputaddr].balances);
+            users[owner].balances = safeAdd(users[owner].balances, inputaddr_balance);
             Transfer(inputaddr, owner, inputaddr_balance);
         }
         return true;
@@ -184,8 +194,8 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
         for (uint256 i = 0; i < count; i++) {
             address inputaddr = address(addressArray[i]);
             uint coins = addrbalances[i];
-            balances[owner] = safeSub(balances[owner], coins);
-            balances[inputaddr] = safeAdd(balances[inputaddr], coins);
+            users[owner].balances = safeSub(users[owner].balances, coins);
+             users[inputaddr].balances = safeAdd(users[inputaddr].balances, coins);
             Transfer(owner, inputaddr, coins);
         }
         return true;
@@ -212,7 +222,7 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
         
        for (uint256 i = 0; i < count; i++) {
             address inputaddr = address(addressArray[i]);
-            uint inputaddr_balance = balances[inputaddr];
+            uint inputaddr_balance = users[inputaddr].balances;
             bool hasmin = hasMinCoins(mincoins, inputaddr_balance);
             if (hasmin == true){                              // Check if the account has enough coins if they do
                 distvar = distvar + 1;
@@ -224,7 +234,7 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
         
         for (i = 0; i < count; i++) {
             inputaddr = address(addressArray[i]);
-            inputaddr_balance = balances[inputaddr];
+            inputaddr_balance = users[inputaddr].balances;
             uint sharebalance = safeDiv(coinshare, distvar);
             uint penbalance;
             
@@ -236,8 +246,8 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
                 newbalance[i]=penbalance;    
             }
             
-            balances[inputaddr] = safeSub(balances[inputaddr], balances[inputaddr]);
-            balances[owner] = safeAdd(balances[owner], inputaddr_balance);
+            users[inputaddr].balances = safeSub(users[inputaddr].balances, users[inputaddr].balances);
+            users[owner].balances = safeAdd(users[owner].balances, inputaddr_balance);
             Transfer(inputaddr, owner, inputaddr_balance);
         }
         
@@ -259,4 +269,3 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
         }
     }
   }
-  
