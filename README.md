@@ -11,15 +11,15 @@ Features
 * ERC20 - Backed by Ethereum
 * Redistributable 
 
-Recent events have shown the world that the markets are no longer truly free. They are subjected to the whims of the rich and powerful. They have stolen our homes, forced us into student loans and now profit off our misfortune as they manipulate the markets. Our oppressors have become known as the whales and as the bourgeoise built their empire on the backs of the common man, the proletariat, who they stripped their humanity from to become simple cogs in the machine, so do the whales build their dominion on the backs of the common crypto investor, the Fossa.
+Recent events have shown the world that the markets are no longer truly free. They are subjected to the whims of the rich and powerful. They have stolen our homes, forced us into student debt and now profit off the money we got from mortgaging our homes for more crypto as they manipulate the markets. Our oppressors have become known as the whales and as the bourgeoisie built their empire on the backs of the common man, who they stripped their humanity from to become simple cogs in the machine, so do the whales build their dominion on the backs of the common crypto investor, the Fossa.
 
-To empower the Revolution Commie Coin shall be **Redistributable**. The whales cannot be allowed to infiltrate the world of the Fossa and any person that seeks to accumulate to many coins cannot be trusted. To prevent these situations the coin shall be redistributed regularly and equally, nominally at the end of each month, to those that have shown sufficient dedication to the cause.
+To empower the Revolution Commie Coin shall be **Redistributable**. The whales cannot be allowed to infiltrate the world of the Fossa and any person that seeks to accumulate too many coins cannot be trusted. To prevent these situations the coin shall be redistributed regularly and semi-equally, nominally at the end of each month, to those that have shown sufficient dedication to the cause.
 
-Many a great communist nation has been undone by the effects of excessive inflation. The Soviet Union, Venezuela and Cuba all have struggled greatly and been undermined by inflation, so it shall be preempted. During each redistribution to the members of the Fossa movement the coin supply shall be reduced. There will be no stockpile of dev coins or the threat of a future coin release beyond the planned ICO stages to threaten the depletion of value. Commie Coin will be the first **Deflationary** coin.
+Many a great communist nation has been undone by the effects of excessive inflation. The Soviet Union, Venezuela and Cuba all have struggled greatly and have been undermined by inflation. So as much fun as using wheelbarrows for our cash is, it shall be preempted. During each redistribution to the members of the Fossa movement the coin supply shall be reduced. There will be no stockpile of dev coins or the threat of a future coin release beyond the planned ICO stages to threaten the depletion of value. Commie Coin will be a **Deflationary** coin.
 
-Commie Coin shall be held to an **Ether Standard**. During the planned ICO stages a portion of all Ether raised shall be reserved to back Commie Coin for no token should be created without the backing of something with intrinsic value.
+Commie Coin shall be held to an **~~Gold~~ Ether Standard**. During the planned ICO stages a portion of all Ether raised shall be reserved to back Commie Coin for no token should be created without the backing of something with intrinsic value.
 
-Now come join our movement and together we shall overthrow the whales
+Now come join our movement and together we shall overthrow the whales!
 
 ## Donations
 ---
