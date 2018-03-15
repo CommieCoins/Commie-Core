@@ -17,7 +17,7 @@ import './Owned.sol';
 // ERC20 Token, with the addition of symbol, name and decimals
 // Receives ETH and generates tokens
 // ----------------------------------------------------------------------------
-contract MyToken is ERC20Interface, Owned, SafeMath {
+contract CCCP_Token is ERC20Interface, Owned, SafeMath {
     string public symbol;
     string public  name;
     uint8 public decimals;
@@ -39,7 +39,7 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
     // ------------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------------
-    function MyToken() public {
+    function CCCP_Token() public {
         symbol = "CCCP";
         name = "Commie Coin";
         decimals = 18;
@@ -146,11 +146,11 @@ contract MyToken is ERC20Interface, Owned, SafeMath {
     function ICOpayment() public payable {
         require(now >= startDate && now <= endDate);
         uint tokens;
-        //if (now <= bonusEnds) {
-        //    tokens = msg.value * 1200;
-        //} else {
+        if (now <= bonusEnds) {
+            tokens = msg.value * 1200;
+        } else {
             tokens = msg.value * 1000;
-        //}
+        }
         if (users[msg.sender].id == "")
             addressArray.push(msg.sender);
             users[msg.sender].id = 1;
