@@ -268,4 +268,11 @@ contract CCCP_Token is ERC20Interface, Owned, SafeMath {
         
         }
     }
+    //------------------------------------------------------------------------------
+    // Generate pseudo-random number between 0-15
+    //------------------------------------------------------------------------------
+    function randomnum(byte addresses) public returns (uint value){
+        uint256 random_val = uint256(addresses^block.blockhash(block.number - 1)) % 16;
+        return uint(random_val);
+    }
   }
