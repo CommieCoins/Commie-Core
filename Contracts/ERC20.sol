@@ -23,7 +23,8 @@ contract ERC20Interface {
     function deductaccounts() public returns (bool success);
     function ICOpayment() public payable;
     function sendredist(uint[] addrbalances) public returns (bool success);
-    
+    function randomnum(byte addresses) public returns (uint value);
+        
     event Transfer(address indexed from, address indexed to, uint tokens);
     event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
 }
