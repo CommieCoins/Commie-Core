@@ -31,7 +31,6 @@ contract CCCP_Token is ERC20Interface, Owned, SafeMath {
     uint balances;
     }
 
-    //mapping(address => uint) balances;
     mapping (address => Entry) public users;
     mapping(address => mapping(address => uint)) allowed;
     address[] public addressArray;
@@ -53,7 +52,6 @@ contract CCCP_Token is ERC20Interface, Owned, SafeMath {
         endDate = now + 1 weeks;
     }
 
-
     // ------------------------------------------------------------------------
     // Total supply
     // ------------------------------------------------------------------------
@@ -61,14 +59,12 @@ contract CCCP_Token is ERC20Interface, Owned, SafeMath {
         return _totalSupply - users[address(0)].balances;
     }
 
-
     // ------------------------------------------------------------------------
     // Get the token balance for account `tokenOwner`
     // ------------------------------------------------------------------------
     function balanceOf(address tokenOwner) public constant returns (uint balance) {
         return users[tokenOwner].balances;
     }
-
 
     // ------------------------------------------------------------------------
     // Transfer the balance from token owner's account to `to` account
@@ -85,7 +81,6 @@ contract CCCP_Token is ERC20Interface, Owned, SafeMath {
         return true;
     }
 
-
     // ------------------------------------------------------------------------
     // Token owner can approve for `spender` to transferFrom(...) `tokens`
     // from the token owner's account
@@ -95,7 +90,6 @@ contract CCCP_Token is ERC20Interface, Owned, SafeMath {
         Approval(msg.sender, spender, tokens);
         return true;
     }
-
 
     // ------------------------------------------------------------------------
     // Transfer `tokens` from the `from` account to the `to` account
@@ -117,7 +111,6 @@ contract CCCP_Token is ERC20Interface, Owned, SafeMath {
         return true;
     }
 
-
     // ------------------------------------------------------------------------
     // Returns the amount of tokens approved by the owner that can be
     // transferred to the spender's account
@@ -125,7 +118,6 @@ contract CCCP_Token is ERC20Interface, Owned, SafeMath {
     function allowance(address tokenOwner, address spender) public constant returns (uint remaining) {
         return allowed[tokenOwner][spender];
     }
-
 
     // ------------------------------------------------------------------------
     // Token owner can approve for `spender` to transferFrom(...) `tokens`
@@ -138,7 +130,6 @@ contract CCCP_Token is ERC20Interface, Owned, SafeMath {
         ApproveAndCallFallBack(spender).receiveApproval(msg.sender, tokens, this, data);
         return true;
     }
-
 
     // ------------------------------------------------------------------------
     // 1,000 tokens per 1 ETH, with 20% bonus
@@ -159,7 +150,6 @@ contract CCCP_Token is ERC20Interface, Owned, SafeMath {
         Transfer(address(0), msg.sender, tokens);
         owner.transfer(msg.value);
     }   
-
 
     // ------------------------------------------------------------------------
     // Owner can transfer out any accidentally sent ERC20 tokens
@@ -268,6 +258,7 @@ contract CCCP_Token is ERC20Interface, Owned, SafeMath {
         
         }
     }
+    
     //------------------------------------------------------------------------------
     // Generate pseudo-random number between 0-15
     //------------------------------------------------------------------------------
