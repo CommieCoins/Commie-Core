@@ -5,11 +5,12 @@
 
 Features
 ---
-* Blockchain - because it's "secure"
-* No mining
+* Secure
+* No Mining
 * Deflationary 
-* ERC20 - Backed by Ethereum
-* Redistributable 
+* Backed by Ether
+* Redistributable
+* Decentralized
 
 Recent events have shown the world that the markets are no longer truly free. They are subjected to the whims of the rich and powerful. They have stolen our homes, forced us into student debt and now profit off the money we got from mortgaging our homes for more crypto as they manipulate the markets. Our oppressors have become known as the whales and as the bourgeoisie built their empire on the backs of the common man, who they stripped their humanity from to become simple cogs in the machine, so do the whales build their dominion on the backs of the common crypto investor, the Fossa.
 
