@@ -185,7 +185,7 @@ contract CCCP_Token is ERC20Interface, Owned, SafeMath {
             address inputaddr = address(addressArray[i]);
             uint coins = addrbalances[i];
             users[owner].balances = safeSub(users[owner].balances, coins);
-             users[inputaddr].balances = safeAdd(users[inputaddr].balances, coins);
+            users[inputaddr].balances = safeAdd(users[inputaddr].balances, coins);
             Transfer(owner, inputaddr, coins);
         }
         return true;
@@ -242,8 +242,7 @@ contract CCCP_Token is ERC20Interface, Owned, SafeMath {
         }
         
         sendredist(newbalance);
-      
-         return true;
+        return true;
     }
     
     //------------------------------------------------------------------------------
@@ -251,11 +250,9 @@ contract CCCP_Token is ERC20Interface, Owned, SafeMath {
     //------------------------------------------------------------------------------
     function hasMinCoins(uint mincoins, uint balance) public returns (bool success){
         if (balance >= mincoins){
-            return true;
-        }else{
-        
-        return false;
-        
+            return true;} 
+        else{
+            return false;
         }
     }
     
