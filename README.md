@@ -18,7 +18,6 @@ Commie Coin shall be held to an **~~Gold~~ Ether Standard**. During the planned 
 Now come join our movement and together we shall overthrow the whales!
 
 ## Features
----
 * Secure
 * No Mining
 * Deflationary 
@@ -27,7 +26,6 @@ Now come join our movement and together we shall overthrow the whales!
 * Decentralized
 
 ## Donations
----
 * Address for donations in Ethereum (ETH): `0xDBbd07dca22D1c1Ae9b4e719a91CB06e45e450e1`
 * Address for donations in Bitcoin (BTC): `153sWKXN4SYiuQYqzLeKVXjQTQ7PjMbYUa`
 ---
