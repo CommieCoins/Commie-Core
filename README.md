@@ -32,4 +32,6 @@ Now come join our movement and together we shall overthrow the whales!
 * Address for donations in Bitcoin (BTC): `153sWKXN4SYiuQYqzLeKVXjQTQ7PjMbYUa`
 ---
 
-![Commie Coin Logo](http://commiecoin.org/img/cccp.png)
+<p align="center">
+  <img src="http://commiecoin.org/img/cccp.png">
+</p>
